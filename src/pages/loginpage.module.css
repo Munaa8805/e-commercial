@@ -65,6 +65,7 @@
   font-size: 1.4rem;
   color: #fff;
   border-radius: 10px;
+  border: none;
 }
 .formButton button:hover {
   cursor: pointer;
@@ -90,13 +91,19 @@
   margin-bottom: 1rem;
   border-top: 1px solid #333;
   padding-top: 3rem;
+  border: none;
 }
 .signUpButton button {
   background-color: var(--green);
   padding: 1rem 2.5rem;
   font-size: 1.4rem;
   color: #fff;
+  border: none;
   border-radius: 10px;
+}
+.signUpButton button a {
+  text-decoration: none;
+  color: #fff;
 }
 .signUpButton button:hover {
   cursor: pointer;

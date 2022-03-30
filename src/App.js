@@ -9,6 +9,7 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 const MainPage = React.lazy(() => import("./pages/MainPage"));
 const LoginPage = React.lazy(() => import("./pages/LoginPage"));
 const LogoutPage = React.lazy(() => import("./pages/LogoutPage"));
+const SignUpPage = React.lazy(() => import("./pages/SignUpPage"));
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/login">
             <LoginPage />
+          </Route>
+          <Route exact path="/register">
+            <SignUpPage />
           </Route>
           <Route exact path="/logout">
             <LogoutPage />

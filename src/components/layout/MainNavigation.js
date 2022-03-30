@@ -21,6 +21,11 @@ const MainNavigation = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/register" activeClassName={classes.active}>
+              БҮРТГҮҮЛЭХ
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/logout" activeClassName={classes.active}>
               ГАРАХ
             </NavLink>

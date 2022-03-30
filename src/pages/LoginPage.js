@@ -80,7 +80,9 @@ const LoginPage = () => {
                 <Link to="/reset-password">Нууц үг сэргээх</Link>
               </div>
               <div className={classes.signUpButton}>
-                <button>БҮРТГҮҮЛЭХ</button>
+                <button>
+                  <Link to="/register">БҮРТГҮҮЛЭХ</Link>
+                </button>
               </div>
             </form>
           </Card>
