@@ -55,7 +55,7 @@
 }
 
 .twoFive label {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -63,7 +63,7 @@
   width: 100%;
   margin-top: 1.5rem;
   padding: 0.4rem 0.4rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .formButton {
@@ -74,8 +74,8 @@
 }
 .formButton button {
   background-color: var(--blue);
-  padding: 1rem 2.5rem;
-  font-size: 1.4rem;
+  padding: 0.5rem 2.5rem;
+  font-size: 1.2rem;
   color: #fff;
   border-radius: 10px;
   border: none;
@@ -90,7 +90,7 @@
 .passResetLink a {
   text-decoration: none;
   color: var(--blue-text);
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease-out;
 }
 .passResetLink a:hover {
@@ -108,8 +108,8 @@
 }
 .signUpButton button {
   background-color: var(--green);
-  padding: 1rem 2.5rem;
-  font-size: 1.4rem;
+  padding: 0.5rem 2.5rem;
+  font-size: 1.2rem;
   color: #fff;
   border: none;
   border-radius: 10px;

@@ -36,7 +36,7 @@
 }
 .formInput input {
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
 }
 .formSecond {
@@ -46,7 +46,7 @@
 }
 .formSecond input {
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
 }
 
@@ -57,7 +57,7 @@
 .formButton button {
   width: 100%;
   padding: 0.5rem 1rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
   background-color: var(--green);
   color: #fff;
   border-radius: 10px;
