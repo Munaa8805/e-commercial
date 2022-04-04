@@ -1,7 +1,7 @@
 @import "../index.css";
 .containerRegister {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 60% 40%;
   column-gap: 2rem;
 }
 .register {
@@ -10,7 +10,7 @@
 }
 .register h1 {
   width: 80%;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
   margin-top: 4rem;
   margin-bottom: 2rem;
@@ -21,6 +21,9 @@
 }
 .mainForm {
   width: 80%;
+}
+.formControl {
+  padding-top: 2rem;
 }
 .formFirst {
   display: grid;

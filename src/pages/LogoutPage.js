@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import Card from "../components/UI/Card";
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+import * as actions from "../redux/actions/signupActions";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import classes from "./loginpage.module.css";
+
+//
 const LoginPage = () => {
   const [isEntering, setIsEntering] = useState(false);
   const [email, setEmail] = useState("");
@@ -82,4 +86,10 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(actions.logout())
+  };
+};
+
+export default connect(null, mapDispatchToProps)(LoginPage);

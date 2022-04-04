@@ -1,40 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/UI/Card";
-import { Link } from "react-router-dom";
-
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../redux/actions/loginActions";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import classes from "./loginpage.module.css";
-const LoginPage = () => {
-  const [isEntering, setIsEntering] = useState(false);
+
+const LoginPage = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  ////
-  const emailInputHandler = e => {
+  const changeEmail = e => {
     setEmail(e.target.value);
   };
-  const passwordInputHandler = e => {
+
+  const changePassword = e => {
     setPassword(e.target.value);
   };
 
-  ////
-  const formFocusedHandler = () => {
-    setIsEntering(true);
+  const loginHandler = () => {
+    props.login(email, password);
   };
-  const finishEnteringHandler = () => {
-    setIsEntering(false);
-  };
-  const submitFormHandler = e => {
-    e.preventDefault();
-    if (email.includes("@") && password.trim().length >= 6) {
-      console.log("submited");
-    } else {
-      //   setError("Таны нууц үг, эсвэл е-мэйл хаяг буруу байна.");
-      window.alert("Таны нууц үг, эсвэл е-мэйл хаяг буруу байна.");
-    }
-    setEmail("");
-    setPassword("");
-  };
+  let errorMessage;
+  if (props.firebaseError === "INVALID_EMAIL") {
+    errorMessage = "Та и-мэйл хаягаа шалгана уу.";
+  } else if (props.firebaseError === "WRONG_PASSWORD") {
+    errorMessage = "Та нууц үгээ шалгана уу.";
+  }
+
   return (
     <section className={classes.loginpageSection}>
       <div className={classes.firstsection}>
@@ -50,41 +43,59 @@ const LoginPage = () => {
       <div className={classes.secondsection}>
         <div className={classes.form}>
           <Card>
-            <form onFocus={formFocusedHandler} onSubmit={submitFormHandler}>
-              <div className={classes.formControl}>
-                <label htmlFor="email">Э-мэйл хаяг: </label>
+            {props.logginIn && (
+              <div className={classes.spinner}>
+                <LoadingSpinner />
+              </div>
+            )}
+            {props.userId && <Redirect to="/" />}
+
+            <div className={classes.formControl}>
+              <div className={classes.twoFive}>
+                <label htmlFor="email">Э-мэйл хаяг : </label>
+              </div>
+              <div className={classes.sevenFive}>
                 <input
                   type="email"
-                  id="email"
                   value={email}
-                  onChange={emailInputHandler}
+                  onChange={changeEmail}
                   required
-                  placeholder="Та имэйл хаягаа оруулна уу"
+                  placeholder="И-мэйл хаяг"
                 />
               </div>
-              <div className={classes.formControl}>
+            </div>
+            <div className={classes.formControl}>
+              <div className={classes.twoFive}>
                 <label htmlFor="text">Нууц үг : </label>
+              </div>
+              <div className={classes.sevenFive}>
                 <input
                   type="password"
-                  id="name"
                   required
                   value={password}
-                  onChange={passwordInputHandler}
-                  placeholder="Та нууц үгээ оруулна уу"
+                  onChange={changePassword}
+                  placeholder="Нууц үг"
                 />
               </div>
-              <div className={classes.formButton}>
-                <button onClick={finishEnteringHandler}>НЭВТРЭХ</button>
-              </div>
-              <div className={classes.passResetLink}>
-                <Link to="/reset-password">Нууц үг сэргээх</Link>
-              </div>
-              <div className={classes.signUpButton}>
-                <button>
-                  <Link to="/register">БҮРТГҮҮЛЭХ</Link>
-                </button>
-              </div>
-            </form>
+            </div>
+            <div className={classes.formHorizonal}></div>
+            <div className={classes.formButton}>
+              <button onClick={loginHandler}>НЭВТРЭХ</button>
+            </div>
+
+            <div className={classes.formError}>{errorMessage}</div>
+
+            <div className={classes.signUpButton}>
+              <button>
+                <Link to="/register">БҮРТГҮҮЛЭХ</Link>
+              </button>
+            </div>
+            <div className={classes.passResetLink}>
+              <Link to="/reset-password">Нууц үг сэргээх</Link>
+            </div>
+            <div className={classes.formButton}>
+              {props.userId && <p>{props.userId}</p>}
+            </div>
           </Card>
         </div>
       </div>
@@ -92,4 +103,19 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+const mapStateToProps = state => {
+  return {
+    logginIn: state.signupReducer.logginIn,
+    firebaseError: state.signupReducer.firebaseError,
+    firebaseErrorCode: state.signupReducer.firebaseErrorCode,
+    userId: state.signupReducer.userId
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: (email, password) => dispatch(actions.loginUser(email, password))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

@@ -33,31 +33,44 @@
   padding-bottom: 4rem;
   padding-right: 6rem;
 }
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .form {
   width: 80%;
 }
+
 .formControl {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.formControl .twoFive {
   width: 100%;
-  margin: 2rem 0;
+  margin-top: 1.5rem;
 }
-.formControl label {
-  font-size: 1.6rem;
-  font-weight: 500;
-  width: 40%;
-  color: black;
-  padding: 2rem 0;
+
+.twoFive label {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
-.formControl input {
+
+.sevenFive input {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.4rem 0.4rem;
   font-size: 1.4rem;
-  width: 60%;
-  padding: 0.8rem 0.8rem;
 }
 
 .formButton {
   display: grid;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-  width: 80%;
+  margin: 1rem auto;
+  width: 100%;
+  padding: 0 1rem;
 }
 .formButton button {
   background-color: var(--blue);
@@ -72,10 +85,10 @@
 }
 .passResetLink {
   margin: 2rem auto;
+  padding: 0 1rem;
 }
 .passResetLink a {
   text-decoration: none;
-
   color: var(--blue-text);
   font-size: 1.1rem;
   transition: all 0.3s ease-out;
@@ -87,10 +100,10 @@
 .signUpButton {
   display: grid;
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
   margin-bottom: 1rem;
   border-top: 1px solid #333;
-  padding-top: 3rem;
+  padding: 0 1rem;
   border: none;
 }
 .signUpButton button {
@@ -107,4 +120,14 @@
 }
 .signUpButton button:hover {
   cursor: pointer;
+}
+.formHorizonal {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  /* border-bottom: 4px solid var(--blue); */
+}
+.formError {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: red;
 }
