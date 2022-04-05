@@ -2,7 +2,7 @@ import axios from "axios";
 import * as actions from "./signupActions";
 
 export const loginUser = (email, password) => {
-  console.log(email, password);
+  // console.log(email, password);
   return function(dispatch) {
     dispatch(loginUserStart());
 

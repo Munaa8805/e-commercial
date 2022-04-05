@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "../components/UI/Card";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+
 import * as actions from "../redux/actions/loginActions";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import classes from "./loginpage.module.css";
@@ -9,7 +10,7 @@ import classes from "./loginpage.module.css";
 const LoginPage = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  console.log("loginPage UserId", props.userId);
   const changeEmail = e => {
     setEmail(e.target.value);
   };
@@ -22,11 +23,11 @@ const LoginPage = props => {
     props.login(email, password);
   };
   let errorMessage;
-  if (props.firebaseError === "INVALID_EMAIL") {
-    errorMessage = "Та и-мэйл хаягаа шалгана уу.";
-  } else if (props.firebaseError === "WRONG_PASSWORD") {
-    errorMessage = "Та нууц үгээ шалгана уу.";
-  }
+  // if (props.firebaseError === "INVALID_EMAIL") {
+  //   errorMessage = "Та и-мэйл хаягаа шалгана уу.";
+  // } else if (props.firebaseError === "WRONG_PASSWORD") {
+  //   errorMessage = "Та нууц үгээ шалгана уу.";
+  // }
 
   return (
     <section className={classes.loginpageSection}>
@@ -48,7 +49,7 @@ const LoginPage = props => {
                 <LoadingSpinner />
               </div>
             )}
-            {props.userId && <Redirect to="/" />}
+            {props.userId ? <Redirect to="/" /> : null}
 
             <div className={classes.formControl}>
               <div className={classes.twoFive}>
@@ -104,6 +105,7 @@ const LoginPage = props => {
 };
 
 const mapStateToProps = state => {
+  console.log("LoginPage state", state);
   return {
     logginIn: state.signupReducer.logginIn,
     firebaseError: state.signupReducer.firebaseError,
