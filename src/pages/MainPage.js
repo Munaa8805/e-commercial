@@ -29,7 +29,13 @@ const MainPage = props => {
       <Meta />
       <p>{localStorage.getItem("userId")}</p>
       <h1>Main НҮҮР</h1>
-      <div className={classes.container}>{productItems}</div>
+      {!props.loading ? (
+        <p className={classes.spinner}>
+          <LoadingSpinner />
+        </p>
+      ) : (
+        <div className={classes.container}>{productItems}</div>
+      )}
     </section>
   );
 };
@@ -38,7 +44,8 @@ const mapStateToProps = state => {
   // console.log("=======", Array.isArray(state.productsReducer.products));
   // console.log("===console.log====", state.productsReducer.products);
   return {
-    productsItemnuud: state.productsReducer.products
+    productsItemnuud: state.productsReducer.products,
+    loading: state.productsReducer.loading
   };
 };
 

@@ -1,6 +1,7 @@
 const initialState = {
   products: null,
-  productError: null
+  productError: null,
+  loading: true
 };
 const productsReducer = (state = initialState, action) => {
   //   console.log("===Reducer===", Array.isArray(action.products));
@@ -10,18 +11,21 @@ const productsReducer = (state = initialState, action) => {
     case "PRODUCTS_START":
       return {
         ...state,
-        products: null
+        products: null,
+        loading: false
       };
     case "PRODUCTS_SUCCESS":
       return {
         ...state,
-        products: action.products
+        products: action.products,
+        loading: true
       };
     case "PRODUCTS_ERROR":
       return {
         ...state,
         products: null,
-        productError: action.error
+        productError: action.error,
+        loading: true
       };
     default:
       return state;
