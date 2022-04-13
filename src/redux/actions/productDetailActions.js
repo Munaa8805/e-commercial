@@ -1,13 +1,16 @@
 import axios from "axios";
+import { useState } from "react";
 
-export const productDetailItem = () => {
+export const productDetailItem = productId => {
+  // const [productId, setProductId] = useState(null);
+  // console.log(productId);
   return function(dispatch) {
     dispatch(productDetailItemStart());
 
     axios
-      .get("'https://fakestoreapi.com/products/1")
+      .get(`https://fakestoreapi.com/products/${productId}`)
       .then(result => {
-        // console.log("product result ", result.data);
+        console.log("product detail result ", result.data);
         // console.log("======", Array.isArray(result.data));
         // object convert to array
 
@@ -26,10 +29,10 @@ export const productDetailItemStart = () => {
   };
 };
 
-export const productDetailItemSuccess = products => {
+export const productDetailItemSuccess = productDetail => {
   return {
     type: "PRODUCT_DETAIL_SUCCESS",
-    products
+    productDetail
   };
 };
 

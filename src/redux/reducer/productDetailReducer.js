@@ -17,7 +17,7 @@ const productDetailReducer = (state = initialState, action) => {
     case "PRODUCT_DETAIL_SUCCESS":
       return {
         ...state,
-        productDetail: action.products,
+        productDetail: action.productDetail,
         loading: true
       };
     case "PRODUCT_DETAIL_ERROR":
