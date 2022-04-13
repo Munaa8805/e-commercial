@@ -15,6 +15,11 @@ const MainPage = React.lazy(() => import("./pages/MainPage"));
 const LoginPage = React.lazy(() => import("./pages/LoginPage"));
 const SignUpPage = React.lazy(() => import("./pages/SignUpPage"));
 
+//// import Components
+const ProductDetail = React.lazy(() =>
+  import("./components/Product/ProductDetail")
+);
+
 const App = props => {
   console.log("App props.userId", props.userId);
   useEffect(() => {
@@ -51,6 +56,9 @@ const App = props => {
         <Switch>
           <Route exact path="/">
             <MainPage />
+          </Route>
+          <Route exact path="/product-detail">
+            <ProductDetail />
           </Route>
           <Route exact path="/logout">
             <Logout />

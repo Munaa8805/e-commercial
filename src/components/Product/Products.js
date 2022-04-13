@@ -1,9 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import LinesEllipsis from "react-lines-ellipsis";
 import Stars from "simple-rating-stars";
 import Meta from "../Meta";
 import "./product.css";
 const Products = props => {
+  const history = useHistory();
+  let productId = props.product.id;
+
+  const productDetailHandler = productId => {
+    // console.log("productId", productId);
+    history.push("/product-detail");
+  };
   return (
     <div className="cart-container">
       <Meta description={props.category} keywords={props.title} />
@@ -56,7 +64,7 @@ const Products = props => {
         </div>
       </div>
       <div className="btn">
-        <button>
+        <button onClick={productDetailHandler}>
           <a>View more</a>
         </button>
       </div>

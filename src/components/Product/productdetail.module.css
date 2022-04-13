@@ -1,0 +1,45 @@
+.containerDetail {
+  width: 1200px;
+  margin: 0 auto;
+}
+.productDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: greenyellow;
+}
+
+.starRating {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.starRating span {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.priceDetail {
+  display: flex;
+}
+.priceDetail p {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.buttonContainer {
+  display: flex;
+}
+
+.buttonDiv {
+  margin-top: 1rem;
+}
+.buttonDiv button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.lastButton {
+  margin-left: 2rem;
+}

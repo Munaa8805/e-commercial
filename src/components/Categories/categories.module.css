@@ -1,0 +1,19 @@
+@import "../../index.css";
+
+.categoryContainer {
+  margin-bottom: 2rem;
+}
+.categoryContainer button {
+  margin-left: 1rem;
+  padding: 01rem 1.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  background-color: var(--blue);
+  color: #fff;
+  border-radius: 8px;
+  border-width: 0px;
+  font-weight: 600;
+}
+.categoryContainer button:hover {
+  cursor: pointer;
+}

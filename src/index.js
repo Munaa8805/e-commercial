@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import signupReducer from "./redux/reducer/signupLoginReducer";
 import productsReducer from "./redux/reducer/ProductsReducer";
+import productDetailReducer from "./redux/reducer/productDetailReducer";
 
 const loggerMiddlaware = store => {
   return next => {
@@ -26,7 +27,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducers = combineReducers({
   signupReducer,
-  productsReducer
+  productsReducer,
+  productDetailReducer
 });
 
 const middlewares = [loggerMiddlaware, thunk];

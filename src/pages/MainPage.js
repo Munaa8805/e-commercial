@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import * as actions from "../redux/actions/productsActions";
 import Product from "../components/Product/Products";
 import Meta from "../components/Meta";
+import Categories from "../components/Categories/Categories";
 import classes from "./mainpage.module.css";
 
 const MainPage = props => {
@@ -28,7 +29,10 @@ const MainPage = props => {
     <section>
       <Meta />
       <p>{localStorage.getItem("userId")}</p>
-      <h1>Main НҮҮР</h1>
+
+      <div className={classes.categories}>
+        <Categories />
+      </div>
       {!props.loading ? (
         <p className={classes.spinner}>
           <LoadingSpinner />
