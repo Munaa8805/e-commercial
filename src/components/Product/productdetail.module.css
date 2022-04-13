@@ -6,9 +6,24 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  background-color: greenyellow;
+  background-color: white;
+  box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
-
+.mainP {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productDetailImage {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productDetailImage img {
+  width: 100%;
+}
 .starRating {
   display: flex;
   align-items: center;
@@ -42,4 +57,14 @@
 }
 .lastButton {
   margin-left: 2rem;
+}
+
+.butsahBtn {
+  margin-bottom: 1rem;
+}
+.butsahBtn a {
+  text-decoration: none;
+  cursor: pointer;
+
+  color: black;
 }

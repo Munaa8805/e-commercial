@@ -1,24 +1,40 @@
 import React from "react";
 import classes from "./productdetail.module.css";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import * as actions from "../../redux/actions/productDetailActions";
 import Stars from "simple-rating-stars";
 
-const ProductDetail = () => {
-  return (
-    <div className={classes.containerDetail}>
-      <h1>Product detail</h1>
+const ProductDetail = props => {
+  console.log("props productdetail", props);
+  let content;
+  if (props.loading === false) {
+    content = (
+      <p className={classes.mainP}>
+        <LoadingSpinner />
+      </p>
+    );
+  } else if (props.error) {
+    content = <p>Ямар нэгэн алдаа гарлаа.</p>;
+  } else {
+    content = (
       <div className={classes.productDetail}>
-        <div>Image</div>
+        <div className={classes.productDetailImage}>
+          <img
+            src={props.productDetailItem.image}
+            alt={props.productDetailItem.title}
+          />
+        </div>
         <div>
-          <h3>MEN'S COLLECTION</h3>
+          <h3>{props.productDetailItem.category}</h3>
 
-          <h1>Fjallraven - Foldsack Title</h1>
+          <h1>{props.productDetailItem.title}</h1>
           <div className={classes.starRating}>
             <span>Rating : </span>
             <Stars
               // stars={props.product.rating.rate.toFixed(0)}
-              stars={3}
+              stars={props.productDetailItem.rating.rate.toFixed(0)}
               outOf={5}
               full={"#FFE900"}
               empty={"#E1F1FF"}
@@ -27,17 +43,11 @@ const ProductDetail = () => {
           </div>
           <div className={classes.priceDetail}>
             <p>
-              Price: $<span>109.95</span>
+              Price: $<span>{props.productDetailItem.price}</span>
             </p>
           </div>
           <div>
-            <p>
-              In this video, We'll See How to Build an ECommerce App using React
-              JS and Redux with Using Fetch API to Get Products Data. We also
-              Add Filter Product Functionality to Filter Products and Use
-              Skeleton Loading When Calling API. This is the Best React JS
-              Project for Beginners.
-            </p>
+            <p>{props.productDetailItem.description}</p>
           </div>
           <div className={classes.buttonContainer}>
             <div className={classes.buttonDiv}>
@@ -49,23 +59,29 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+    );
+  }
+  return (
+    <div className={classes.containerDetail}>
+      <div className={classes.butsahBtn}>
+        <Link to="/">БУЦАХ</Link>
+      </div>
+      {content}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   //   console.log("=======", Array.isArray(state.productsReducer.products));
-  console.log("===console.log====", state.productDetailReducer.productDetail);
+  //   console.log(
+  //     "===_PRODUCTDETAIL_ITEM====",
+  //     state.productDetailReducer.productDetail
+  //   );
   return {
-    productDetail: state.productDetailReducer.productDetail,
-    loading: state.productDetailReducer.loading
+    productDetailItem: state.productDetailReducer.productDetail,
+    loading: state.productDetailReducer.loading,
+    error: state.productDetailReducer.productError
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    productDetail: () => dispatch(actions.productDetailItem())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+export default connect(mapStateToProps, null)(ProductDetail);
