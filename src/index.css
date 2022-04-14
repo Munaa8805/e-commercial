@@ -14,7 +14,6 @@
 body {
   font-family: sans-serif;
   background-color: #e7f8f8;
-  height: 100vh;
 }
 
 .centered {
@@ -26,5 +25,5 @@ body {
 }
 footer {
   background-color: var(--blue);
-  display: block;
+  width: 100%;
 }
