@@ -6,6 +6,7 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import * as actions from "../../redux/actions/productDetailActions";
 import Stars from "simple-rating-stars";
 import Button from "../UI/Button";
+import Meta from "../Meta";
 
 const ProductDetail = props => {
   // console.log("props productdetail", props);
@@ -29,7 +30,11 @@ const ProductDetail = props => {
         </div>
         <div className={classes.productDetailDescription}>
           <h3>{props.productDetailItem.category}</h3>
-
+          <Meta
+            title={props.productDetailItem.title}
+            description={props.productDetailItem.description}
+            keywords={props.productDetailItem.title}
+          />
           <h1>{props.productDetailItem.title}</h1>
           <div className={classes.starRating}>
             <span>Rating : </span>
