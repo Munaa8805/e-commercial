@@ -9,6 +9,8 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  /* footer-iig deeshluulehgui baigaa */
+  height: 100vh;
 }
 .categories {
   text-align: center;
