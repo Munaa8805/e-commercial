@@ -21,7 +21,7 @@ const ProductDetail = React.lazy(() =>
 );
 
 const App = props => {
-  console.log("App props.userId", props.userId);
+  // console.log("App props.userId", props.userId);
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");

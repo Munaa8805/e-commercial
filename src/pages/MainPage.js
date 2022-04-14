@@ -16,13 +16,17 @@ const MainPage = props => {
   useEffect(() => {
     props.products();
   }, []);
-
+  let productItems;
   useEffect(() => {
     setProductsItems(props.productsItemnuud);
   }, [props.productsItemnuud]);
 
   // console.log("=====productsItems", productsItems);
-  let productItems = productsItems?.map(product => (
+
+  if (props.error) {
+    productItems = <p>Уучилаараа алдаа гарлаа.</p>;
+  }
+  productItems = productsItems?.map(product => (
     <Product product={product} key={product.id} />
   ));
   return (
@@ -49,7 +53,8 @@ const mapStateToProps = state => {
   // console.log("===console.log====", state.productsReducer.products);
   return {
     productsItemnuud: state.productsReducer.products,
-    loading: state.productsReducer.loading
+    loading: state.productsReducer.loading,
+    error: state.productsReducer.productError
   };
 };
 

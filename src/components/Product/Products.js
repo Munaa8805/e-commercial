@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import LinesEllipsis from "react-lines-ellipsis";
 import Stars from "simple-rating-stars";
 import Meta from "../Meta";
 import "./product.css";
+import { connect } from "react-redux";
+import * as actions from "../../redux/actions/productDetailActions";
+
+////
 const Products = props => {
   const history = useHistory();
-  let productId = props.product.id;
+  // console.log("products props", props);
+  // setProductId(props.product.id);
 
-  const productDetailHandler = productId => {
-    // console.log("productId", productId);
+  const productDetailHandler = () => {
+    props.productDetailItem(props.product.id);
     history.push("/product-detail");
   };
   return (
@@ -20,7 +25,6 @@ const Products = props => {
       </div>
       <div className="cart-content">
         <div className="cart-title">
-          {/* <h3>{props.product.title}</h3> */}
           <h3>
             <LinesEllipsis
               text={props.product.title}
@@ -72,4 +76,11 @@ const Products = props => {
   );
 };
 
-export default Products;
+const mapDispatchToProps = dispatch => {
+  // console.log("products Dispatch", dispatch);
+  return {
+    productDetailItem: productId =>
+      dispatch(actions.productDetailItem(productId))
+  };
+};
+export default connect(null, mapDispatchToProps)(Products);
