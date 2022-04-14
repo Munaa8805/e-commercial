@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import * as actions from "../../redux/actions/productDetailActions";
 import Stars from "simple-rating-stars";
+import Button from "../UI/Button";
 
 const ProductDetail = props => {
-  console.log("props productdetail", props);
+  // console.log("props productdetail", props);
   let content;
   if (props.loading === false) {
     content = (
@@ -26,7 +27,7 @@ const ProductDetail = props => {
             alt={props.productDetailItem.title}
           />
         </div>
-        <div>
+        <div className={classes.productDetailDescription}>
           <h3>{props.productDetailItem.category}</h3>
 
           <h1>{props.productDetailItem.title}</h1>
@@ -46,15 +47,15 @@ const ProductDetail = props => {
               Price: $<span>{props.productDetailItem.price}</span>
             </p>
           </div>
-          <div>
+          <div className={classes.productDescription}>
             <p>{props.productDetailItem.description}</p>
           </div>
           <div className={classes.buttonContainer}>
             <div className={classes.buttonDiv}>
-              <button>Add to Cart</button>
+              <Button type="submit" text="Add to Cart" btnType="blue" />
             </div>
             <div className={`${classes.buttonDiv} ${classes.lastButton}`}>
-              <button>Go to Cart</button>
+              <Button type="submit" text="Go to Cart" btnType="green" />
             </div>
           </div>
         </div>

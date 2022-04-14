@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./categories.module.css";
-
+import Button from "../../components/UI/Button";
 const DUMMY_CATEGORIES = [
   { name: "electronics" },
   { name: "jewelery" },
@@ -11,7 +11,7 @@ const Categories = () => {
   return (
     <div className={classes.categoryContainer}>
       {DUMMY_CATEGORIES.map((item, index) => (
-        <button key={index}>{item.name}</button>
+        <Button key={index} text={item.name} btnType="blue" type="button" />
       ))}
     </div>
   );
