@@ -28,7 +28,7 @@ const Products = props => {
           <h3>
             <LinesEllipsis
               text={props.product.title}
-              maxLine="2"
+              maxLine="1"
               ellipsis="..."
             />
           </h3>

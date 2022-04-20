@@ -1,9 +1,5 @@
 @import "../../index.css";
-.containerDetail {
-  width: 1200px;
-  margin: 0 auto;
-  height: 100vh;
-}
+
 .productDetail {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -20,6 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80vh;
 }
 .productDetailImage {
   padding: 4rem;

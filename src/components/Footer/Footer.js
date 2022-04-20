@@ -1,10 +1,11 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import classes from "./footer.module.css";
 
 const Footer = () => {
   let year = new Date().getFullYear();
   return (
-    <div className={classes.footerContainer}>
+    <Container>
       <div className={classes.footer}>
         <div>
           <h3>Contact Us</h3>
@@ -36,7 +37,7 @@ const Footer = () => {
           <p>Privacy & terms</p>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-
+import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as actions from "./redux/actions/loginActions";
 import * as signupActions from "./redux/actions/signupActions";
@@ -53,26 +53,28 @@ const App = props => {
           </div>
         }
       >
-        <Switch>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
-          <Route exact path="/product-detail">
-            <ProductDetail />
-          </Route>
-          <Route exact path="/logout">
-            <Logout />
-          </Route>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Route exact path="/register">
-            <SignUpPage />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
+        <Container>
+          <Switch>
+            <Route exact path="/">
+              <MainPage />
+            </Route>
+            <Route exact path="/product-detail">
+              <ProductDetail />
+            </Route>
+            <Route exact path="/logout">
+              <Logout />
+            </Route>
+            <Route exact path="/login">
+              <LoginPage />
+            </Route>
+            <Route exact path="/register">
+              <SignUpPage />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </Container>
       </Suspense>
     </Layout>
   );

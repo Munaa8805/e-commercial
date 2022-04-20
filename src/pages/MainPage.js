@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import { Link, Redirect } from "react-router-dom";
+import { Container, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as actions from "../redux/actions/productsActions";
 import Product from "../components/Product/Products";
@@ -30,21 +31,21 @@ const MainPage = props => {
     <Product product={product} key={product.id} />
   ));
   return (
-    <section>
+    <Container>
       <Meta />
       <p>{localStorage.getItem("userId")}</p>
 
-      <div className={classes.categories}>
+      <Row className={classes.categories}>
         <Categories />
-      </div>
+      </Row>
       {!props.loading ? (
         <p className={classes.spinner}>
           <LoadingSpinner />
         </p>
       ) : (
-        <div className={classes.container}>{productItems}</div>
+        <Row className={classes.container}>{productItems}</Row>
       )}
-    </section>
+    </Container>
   );
 };
 

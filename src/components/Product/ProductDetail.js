@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./productdetail.module.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Container } from "react-bootstrap";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import * as actions from "../../redux/actions/productDetailActions";
 import Stars from "simple-rating-stars";
@@ -68,12 +69,12 @@ const ProductDetail = props => {
     );
   }
   return (
-    <div className={classes.containerDetail}>
+    <Container>
       <div className={classes.butsahBtn}>
         <Link to="/">БУЦАХ</Link>
       </div>
       {content}
-    </div>
+    </Container>
   );
 };
 

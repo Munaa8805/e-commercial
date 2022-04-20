@@ -1,11 +1,8 @@
 @import "../../index.css";
 
-.categoryContainer {
-  margin-bottom: 2rem;
-}
 .categoryContainer button {
   margin-left: 1rem;
-  padding: 01rem 1.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   text-transform: uppercase;
   background-color: var(--blue);

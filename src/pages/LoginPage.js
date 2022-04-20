@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "../components/UI/Card";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
+import { Container } from "react-bootstrap";
 import * as actions from "../redux/actions/loginActions";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import classes from "./loginpage.module.css";
@@ -30,7 +30,7 @@ const LoginPage = props => {
   // }
 
   return (
-    <section className={classes.loginpageSection}>
+    <Container className={classes.loginContainer}>
       <div className={classes.firstsection}>
         <div className={classes.words}>
           <p>Өөрийнхөө хүссэн зүйлийг</p>
@@ -100,7 +100,7 @@ const LoginPage = props => {
           </Card>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };
 

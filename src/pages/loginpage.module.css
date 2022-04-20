@@ -1,6 +1,6 @@
 @import "../index.css";
 
-.loginpageSection {
+.loginContainer {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   column-gap: 2rem;
@@ -11,9 +11,7 @@
   align-self: center;
 }
 .words p {
-  font-size: 2rem;
-  /* color: #333; */
-  padding: 1rem;
+  font-size: 1.5rem;
 }
 .wordsBold {
   font-weight: 700;
@@ -21,7 +19,7 @@
 }
 .author p {
   padding: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #333;
   font-weight: 700;
 }
@@ -29,9 +27,7 @@
 .secondsection {
   /* background: green; */
   padding-top: 4rem;
-  padding-left: 6rem;
   padding-bottom: 4rem;
-  padding-right: 6rem;
 }
 .spinner {
   display: flex;
@@ -39,7 +35,7 @@
   align-items: center;
 }
 .form {
-  width: 80%;
+  width: 100%;
 }
 
 .formControl {
@@ -62,7 +58,7 @@
 .sevenFive input {
   width: 100%;
   margin-top: 1.5rem;
-  padding: 0.4rem 0.4rem;
+  padding: 0.4rem;
   font-size: 1rem;
 }
 
@@ -75,7 +71,7 @@
 .formButton button {
   background-color: var(--blue);
   padding: 0.5rem 2.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff;
   border-radius: 10px;
   border: none;
@@ -109,7 +105,7 @@
 .signUpButton button {
   background-color: var(--green);
   padding: 0.5rem 2.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff;
   border: none;
   border-radius: 10px;
