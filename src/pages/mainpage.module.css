@@ -20,6 +20,15 @@
   border: none;
   cursor: pointer;
 }
+.buttonContainer button:visited {
+  border-color: #fff;
+}
+.buttonContainer button:active {
+  border-color: #fff;
+}
+.buttonContainer button:hover {
+  border-color: #fff;
+}
 .productContainer {
   width: 100%;
   display: flex;

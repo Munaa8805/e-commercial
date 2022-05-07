@@ -14,13 +14,28 @@ const MainPage = (props) => {
   const [filterItem, setFilterItem] = useState(productsItems);
   const [loading, setLoading] = useState(false);
 
-  // console.log("===MAIN PAGE props===", Array.isArray(props.productsItemnuud));
-  console.log("productsItems", productsItems);
+  useEffect(() => {
+    props.products();
+  }, []);
+
+  useEffect(() => {
+    setProductsItems(props.productsItemnuud);
+  }, [props.productsItemnuud]);
 
   const filterProduct = (cat) => {
     const updatedList = productsItems.filter((x) => x.category === cat);
     setFilterItem(updatedList);
   };
+  let productuud;
+  if (filterItem.length > 0) {
+    productuud = filterItem?.map((product) => {
+      return <Product product={product} key={product.id} />;
+    });
+  } else {
+    productuud = productsItems?.map((product) => {
+      return <Product product={product} key={product.id} />;
+    });
+  }
   const showProduct = () => {
     return (
       <div className={classes.container}>
@@ -37,24 +52,11 @@ const MainPage = (props) => {
             Electronics
           </button>
         </div>
-        <div className={classes.productContainer}>
-          {filterItem.map((product) => {
-            return <Product product={product} key={product.id} />;
-          })}
-        </div>
+        <div className={classes.productContainer}>{productuud}</div>
       </div>
     );
   };
-
-  useEffect(() => {
-    props.products();
-  }, []);
-
   let productItems;
-  useEffect(() => {
-    setProductsItems(props.productsItemnuud);
-  }, [props.productsItemnuud]);
-
   if (props.error) {
     productItems = <p>Уучилаараа алдаа гарлаа.</p>;
   }
