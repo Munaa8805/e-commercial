@@ -23,8 +23,8 @@ const MainPage = (props) => {
   };
   const showProduct = () => {
     return (
-      <>
-        <div>
+      <div className={classes.container}>
+        <div className={classes.buttonContainer}>
           <button onClick={() => setFilterItem(productsItems)}>All</button>
           <button onClick={() => filterProduct("men's clothing")}>
             Mens's Clothing
@@ -37,14 +37,12 @@ const MainPage = (props) => {
             Electronics
           </button>
         </div>
-        {filterItem.map((product) => {
-          return (
-            <>
-              <Product product={product} key={product.id} />
-            </>
-          );
-        })}
-      </>
+        <div className={classes.productContainer}>
+          {filterItem.map((product) => {
+            return <Product product={product} key={product.id} />;
+          })}
+        </div>
+      </div>
     );
   };
 
@@ -74,7 +72,7 @@ const MainPage = (props) => {
           <LoadingSpinner />
         </p>
       ) : (
-        <Row className={classes.container}>{productItems}</Row>
+        <Row>{productItems}</Row>
       )}
     </Container>
   );
