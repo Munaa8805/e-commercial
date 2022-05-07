@@ -1,0 +1,30 @@
+:root {
+  --blue: #1877f2;
+  --textColor: #1c1e21;
+  --blue-text: #216fdb;
+  --green: #42b72a;
+  --gray: #999999;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #e7f8f8;
+}
+
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer {
+  background-color: var(--blue);
+  width: 100%;
+}

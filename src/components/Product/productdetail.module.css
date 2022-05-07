@@ -1,0 +1,93 @@
+@import "../../index.css";
+
+.productDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+
+  background-color: white;
+  box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  justify-items: center;
+  align-items: center;
+}
+.mainP {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.productDetailImage {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productDetailImage img {
+  width: 100%;
+}
+.productDetailDescription {
+  padding-right: 2rem;
+}
+.productDetailDescription h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: var(--gray);
+}
+.productDetailDescription h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.starRating {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.starRating span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.priceDetail {
+  display: flex;
+}
+.priceDetail p {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.productDescription p {
+  line-height: 1.5;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: black;
+  font-weight: 400;
+}
+.buttonContainer {
+  display: flex;
+}
+
+.buttonDiv {
+  margin-top: 1rem;
+}
+.buttonDiv button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.lastButton {
+  margin-left: 2rem;
+}
+
+.butsahBtn {
+  margin-bottom: 1rem;
+}
+.butsahBtn a {
+  text-decoration: none;
+  cursor: pointer;
+
+  color: black;
+}

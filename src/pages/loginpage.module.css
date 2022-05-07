@@ -1,0 +1,129 @@
+@import "../index.css";
+
+.loginContainer {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  column-gap: 2rem;
+}
+.firstsection {
+  display: grid;
+  justify-content: center;
+  align-self: center;
+}
+.words p {
+  font-size: 1.5rem;
+}
+.wordsBold {
+  font-weight: 700;
+  color: var(--blue);
+}
+.author p {
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 700;
+}
+/*second section*/
+.secondsection {
+  /* background: green; */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  width: 100%;
+}
+
+.formControl {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.formControl .twoFive {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.twoFive label {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.sevenFive input {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.formButton {
+  display: grid;
+  margin: 1rem auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+.formButton button {
+  background-color: var(--blue);
+  padding: 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+}
+.formButton button:hover {
+  cursor: pointer;
+}
+.passResetLink {
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.passResetLink a {
+  text-decoration: none;
+  color: var(--blue-text);
+  font-size: 1rem;
+  transition: all 0.3s ease-out;
+}
+.passResetLink a:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.signUpButton {
+  display: grid;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-top: 1px solid #333;
+  padding: 0 1rem;
+  border: none;
+}
+.signUpButton button {
+  background-color: var(--green);
+  padding: 0.5rem 2.5rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}
+.signUpButton button a {
+  text-decoration: none;
+  color: #fff;
+}
+.signUpButton button:hover {
+  cursor: pointer;
+}
+.formHorizonal {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  /* border-bottom: 4px solid var(--blue); */
+}
+.formError {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: red;
+}

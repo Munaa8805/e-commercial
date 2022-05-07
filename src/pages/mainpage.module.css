@@ -1,0 +1,18 @@
+/* .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  width: 1200px;
+  margin: 0 auto;
+} */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* footer-iig deeshluulehgui baigaa */
+  height: 80vh;
+}
+.categories {
+  display: flex;
+  justify-content: center;
+}
