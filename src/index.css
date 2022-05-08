@@ -5,18 +5,16 @@
   --green: #42b72a;
   --gray: #999999;
 }
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
 body {
   font-family: sans-serif;
   background-color: #e7f8f8;
+  font-size: 16px;
 }
-
 .centered {
   margin: 3rem auto;
   text-align: center;

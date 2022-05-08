@@ -1,20 +1,15 @@
 import axios from "axios";
 
 export const productItems = () => {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(productItemsStart());
 
     axios
       .get("https://fakestoreapi.com/products")
-      .then(result => {
-        // console.log("product result ", result.data);
-        // console.log("======", Array.isArray(result.data));
-        // object convert to array
-
+      .then((result) => {
         dispatch(productItemsSuccess(result.data));
       })
-      .catch(err => {
-        // console.log("products error", err);
+      .catch((err) => {
         dispatch(productItemsError(err));
       });
   };
@@ -26,14 +21,14 @@ export const productItemsStart = () => {
   };
 };
 
-export const productItemsSuccess = products => {
+export const productItemsSuccess = (products) => {
   return {
     type: "PRODUCTS_SUCCESS",
     products
   };
 };
 
-export const productItemsError = error => {
+export const productItemsError = (error) => {
   return {
     type: "PRODUCTS_ERROR",
     error

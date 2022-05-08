@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import * as actions from "../../redux/actions/productDetailActions";
 
 ////
-const Products = props => {
+const Products = (props) => {
   const history = useHistory();
   // console.log("products props", props);
   // setProductId(props.product.id);
@@ -17,6 +17,7 @@ const Products = props => {
     props.productDetailItem(props.product.id);
     history.push("/product-detail");
   };
+
   return (
     <div className="cart-container">
       <Meta description={props.category} keywords={props.title} />
@@ -28,20 +29,26 @@ const Products = props => {
           <h3>
             <LinesEllipsis
               text={props.product.title}
-              maxLine="1"
+              maxLine={1}
               ellipsis="..."
+              trimRight
+              // basedOn="letters"
             />
           </h3>
         </div>
         <div className="cart-body">
-          <LinesEllipsis
-            text={props.product.description}
-            maxLine="3"
-            ellipsis="..."
-          />
+          <p className="description">
+            <LinesEllipsis
+              text={props.product.description}
+              maxLine={3}
+              ellipsis="..."
+              trimRight
+              basedOn="letters"
+            />
+          </p>
         </div>
         <div className="cart-body">
-          <p>
+          <p className="price">
             <span>Price:</span> ${props.product.price}
           </p>
         </div>
@@ -76,10 +83,10 @@ const Products = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   // console.log("products Dispatch", dispatch);
   return {
-    productDetailItem: productId =>
+    productDetailItem: (productId) =>
       dispatch(actions.productDetailItem(productId))
   };
 };

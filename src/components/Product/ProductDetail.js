@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./productdetail.module.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -9,8 +9,9 @@ import Stars from "simple-rating-stars";
 import Button from "../UI/Button";
 import Meta from "../Meta";
 
-const ProductDetail = props => {
-  // console.log("props productdetail", props);
+const ProductDetail = (props) => {
+  const [productDetails, SetProductDetails] = useState({});
+
   let content;
   if (props.loading === false) {
     content = (
@@ -78,7 +79,7 @@ const ProductDetail = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   //   console.log("=======", Array.isArray(state.productsReducer.products));
   //   console.log(
   //     "===_PRODUCTDETAIL_ITEM====",

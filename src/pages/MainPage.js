@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as actions from "../redux/actions/productsActions";
 import Product from "../components/Product/Products";
 import Meta from "../components/Meta";
-import Categories from "../components/Categories/Categories";
+
 import classes from "./mainpage.module.css";
 
 const MainPage = (props) => {
