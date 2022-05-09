@@ -5,23 +5,35 @@
   grid-template-columns: 60% 40%;
   column-gap: 2rem;
 }
+@media screen and (max-width: 992px) {
+  .containerRegister {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 850px) {
+  .containerRegister {
+    grid-template-columns: 1fr;
+  }
+  .firsSection {
+    display: none;
+  }
+}
 .register {
   display: flex;
   flex-direction: column;
+  background-color: greenyellow;
+  text-align: center;
 }
 .register h1 {
-  width: 80%;
-  font-size: 3rem;
-  text-align: center;
-  margin-top: 4rem;
+  width: 100%;
+  font-size: 2rem;
   margin-bottom: 2rem;
   color: var(--blue);
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
   font-weight: 700;
 }
 .mainForm {
-  width: 80%;
+  width: 100%;
 }
 .formControl {
   padding-top: 2rem;
@@ -49,6 +61,11 @@
   width: 100%;
   font-size: 1rem;
   padding: 0.5rem 1rem;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+}
+.formSecond input::placeholder {
+  color: var(--blue);
 }
 
 .formButton {
@@ -65,7 +82,6 @@
   margin-bottom: 2rem;
   padding: 1rem 0;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
   border: none;
 }
 .formButton button:hover {

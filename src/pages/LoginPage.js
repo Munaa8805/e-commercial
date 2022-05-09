@@ -7,15 +7,15 @@ import * as actions from "../redux/actions/loginActions";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import classes from "./loginpage.module.css";
 
-const LoginPage = props => {
+const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   console.log("loginPage UserId", props.userId);
-  const changeEmail = e => {
+  const changeEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  const changePassword = e => {
+  const changePassword = (e) => {
     setPassword(e.target.value);
   };
 
@@ -23,11 +23,11 @@ const LoginPage = props => {
     props.login(email, password);
   };
   let errorMessage;
-  // if (props.firebaseError === "INVALID_EMAIL") {
-  //   errorMessage = "Та и-мэйл хаягаа шалгана уу.";
-  // } else if (props.firebaseError === "WRONG_PASSWORD") {
-  //   errorMessage = "Та нууц үгээ шалгана уу.";
-  // }
+  if (props.firebaseError === "INVALID_EMAIL") {
+    errorMessage = "Та и-мэйл хаягаа шалгана уу.";
+  } else if (props.firebaseError === "WRONG_PASSWORD") {
+    errorMessage = "Та нууц үгээ шалгана уу.";
+  }
 
   return (
     <Container className={classes.loginContainer}>
@@ -104,7 +104,7 @@ const LoginPage = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   console.log("LoginPage state", state);
   return {
     logginIn: state.signupReducer.logginIn,
@@ -114,7 +114,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     login: (email, password) => dispatch(actions.loginUser(email, password))
   };
