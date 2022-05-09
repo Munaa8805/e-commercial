@@ -82,6 +82,47 @@
 .butsahBtn a {
   text-decoration: none;
   cursor: pointer;
-
   color: black;
+}
+@media screen and (max-width: 992px) {
+  .productDetail {
+    grid-template-columns: 1fr 2fr;
+  }
+  .productDetailImage img {
+    width: 100%;
+  }
+  .productDetailDescription h3 {
+    font-size: 1rem;
+  }
+  .productDetailDescription h1 {
+    font-size: 1.2rem;
+  }
+  .starRating span {
+    font-size: 1rem;
+  }
+  .priceDetail p {
+    font-size: 1rem;
+  }
+  .productDescription p {
+    font-size: 1rem;
+  }
+
+  .buttonDiv {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .buttonDiv button {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .productDetail {
+    grid-template-columns: 1fr;
+  }
+  .buttonContainer {
+    text-align: center;
+  }
+  .productDetailDescription {
+    padding-right: 0;
+  }
 }

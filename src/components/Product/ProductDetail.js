@@ -59,10 +59,10 @@ const ProductDetail = (props) => {
           </div>
           <div className={classes.buttonContainer}>
             <div className={classes.buttonDiv}>
-              <Button type="submit" text="Add to Cart" btnType="blue" />
+              <Button type="button" text="Add to Cart" btnType="blue" />
             </div>
             <div className={`${classes.buttonDiv} ${classes.lastButton}`}>
-              <Button type="submit" text="Go to Cart" btnType="green" />
+              <Button type="button" text="Go to Cart" btnType="green" />
             </div>
           </div>
         </div>
