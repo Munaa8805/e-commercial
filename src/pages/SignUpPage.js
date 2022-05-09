@@ -5,21 +5,22 @@ import classes from "./register.module.css";
 import * as actions from "../redux/actions/signupActions";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import Button from "../components/UI/Button";
 
-const SignUpPage = props => {
+const SignUpPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   ////
 
-  const emailHandler = e => {
+  const emailHandler = (e) => {
     setEmail(e.target.value);
   };
-  const passwordHandler = e => {
+  const passwordHandler = (e) => {
     setPassword(e.target.value);
   };
-  const registerHandlerSubmit = e => {
+  const registerHandlerSubmit = (e) => {
     e.preventDefault();
 
     if (email.includes("@") && password.length > 5) {
@@ -30,7 +31,7 @@ const SignUpPage = props => {
   };
   return (
     <div className={classes.containerRegister}>
-      <div>Register Page</div>
+      <div className={classes.firsSection}>Register Page</div>
       <div className={classes.register}>
         <h1>Бүртгүүлэх</h1>
         <div className={classes.mainForm}>
@@ -69,7 +70,7 @@ const SignUpPage = props => {
                 {props.saving && <div>Loading ...</div>}
               </div>
               <div className={classes.formButton}>
-                <button>Бүртгүүлэх</button>
+                <Button text="Бүртгүүлэх" type="button" />
               </div>
             </form>
           </Card>
@@ -79,7 +80,7 @@ const SignUpPage = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     saving: state.signupReducer.saving,
     firebaseError: state.signupReducer.firebaseError,
@@ -87,7 +88,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     signupUser: (email, password) =>
       dispatch(actions.signupUser(email, password))
