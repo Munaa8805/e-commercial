@@ -2,10 +2,14 @@ import React, { Fragment } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { connect } from "react-redux";
+import * as actions from "../../redux/actions/signupActions";
 
 import classes from "./MainNavigation.module.css";
 
-const MainNavigation = props => {
+const MainNavigation = (props) => {
+  const logoutHandler = () => {
+    props.logout();
+  };
   return (
     <header>
       <Navbar
@@ -17,9 +21,16 @@ const MainNavigation = props => {
       >
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>E-SHOP</Navbar.Brand>
+            <Navbar.Brand>
+              <div className={classes.logo}>
+                <a>E-SHOP</a>
+              </div>
+            </Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            className={classes.mobileMenu}
+          />
           <Navbar.Collapse id="basic-navbar-nav">
             {/* <Route render={({ history }) => <SearchBox history={history} />} /> */}
             <Nav className="ml-auto">
@@ -31,9 +42,12 @@ const MainNavigation = props => {
                       <span className={classes.navbarname}>НҮҮР</span>
                     </Nav.Link>
                   </LinkContainer>
-                  <NavDropdown title={"Munaa"} id="username">
-                    <NavDropdown.Item>
-                      {/* <NavDropdown.Item onClick={logoutHandler}> */}
+                  <NavDropdown
+                    title={"Munaa"}
+                    id="username"
+                    className={classes.profile}
+                  >
+                    <NavDropdown.Item onClick={logoutHandler}>
                       ГАРАХ
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -67,10 +81,14 @@ const MainNavigation = props => {
     </header>
   );
 };
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     userId: state.signupReducer.userId
   };
 };
-
-export default connect(mapStateToProps, null)(MainNavigation);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(actions.logout())
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(MainNavigation);
