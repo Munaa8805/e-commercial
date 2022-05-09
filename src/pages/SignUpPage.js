@@ -33,10 +33,10 @@ const SignUpPage = (props) => {
     <div className={classes.containerRegister}>
       <div className={classes.firsSection}>Register Page</div>
       <div className={classes.register}>
-        <h1>Бүртгүүлэх</h1>
         <div className={classes.mainForm}>
           <Card>
             <form onSubmit={registerHandlerSubmit}>
+              <h1>Бүртгүүлэх</h1>
               <div className={classes.formControl}>
                 {props.userId && <Redirect to="/" />}
                 <div className={classes.formSecond}>
